@@ -1,0 +1,152 @@
+.memory-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.memory-game h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.game-stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+  gap: 10px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  background: #2196F3;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid #1976D2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card.flipped {
+  background: white;
+  border-color: #ddd;
+  cursor: default;
+}
+
+.card.flipped:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card.flipped .card-content {
+  color: #333;
+  text-shadow: none;
+}
+
+.restart-btn {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+.restart-btn:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
+}
+
+.restart-btn:active {
+  transform: translateY(0);
+}
+
+.game-won-message {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  animation: celebration 0.6s ease-in-out;
+}
+
+@keyframes celebration {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  50% {
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(4, 70px);
+    gap: 8px;
+  }
+  
+  .card-content {
+    font-size: 1.5rem;
+  }
+  
+  .memory-game h1 {
+    font-size: 2rem;
+  }
+  
+  .game-stats {
+    gap: 20px;
+    font-size: 1rem;
+  }
+}
